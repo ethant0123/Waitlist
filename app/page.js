@@ -10,13 +10,45 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#3f51b5', // Indigo
+      main: '#4a90e2', // Soft Blue
     },
     secondary: {
-      main: '#f50057', // Pink
+      main: '#7b8d8e', // Soft Gray
     },
     background: {
-      default: '#f5f5f5',
+      default: '#f4f4f4', // Light Gray
+    },
+  },
+  typography: {
+    fontFamily: 'Roboto, Arial, sans-serif',
+    h3: {
+      fontSize: '3rem', // Increased font size for the main heading
+    },
+    body1: {
+      fontSize: '1.25rem', // Slightly larger body text
+    },
+    h6: {
+      fontSize: '1.5rem', // Increased font size for section titles
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '25px',
+          textTransform: 'none',
+          padding: '12px 24px', // Slightly larger padding for buttons
+          boxShadow: 'none',
+        },
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          borderRadius: '25px',
+          boxShadow: 'none',
+        },
+      },
     },
   },
 });
@@ -52,8 +84,9 @@ export default function Page() {
           minHeight: '100vh', 
           display: 'flex', 
           flexDirection: 'column',
-          background: 'linear-gradient(to right, #6a1b9a, #ab47bc)', // Purple gradient
-          color: 'white'
+          background: '#f4f4f4', // Light gray background
+          color: '#333', // Dark gray text
+          padding: 3 // Added padding for spacing
         }}
       >
         <Box 
@@ -62,17 +95,19 @@ export default function Page() {
             display: 'flex', 
             flexDirection: 'column', 
             justifyContent: 'center', 
-            alignItems: 'center' 
+            alignItems: 'center',
+            paddingBottom: 4, // Adjusted padding to move content down
+            paddingTop: 4, // Adjusted padding to move content down
           }}
         >
-          <Container maxWidth="md" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Container maxWidth="md" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingBottom: 4 }}>
             {/* Hero Section */}
-            <Box sx={{ textAlign: 'center', mb: 4 }}>
+            <Box sx={{ textAlign: 'center', mb: 3, maxWidth: '1000px' }}> {/* Increased maxWidth to prevent text wrapping */}
               <Typography variant="h3" gutterBottom>
-                Join the Exclusive Waitlist for Our Exciting New App!
+                Join Our Waitlist for Early Access
               </Typography>
-              <Typography variant="h6" paragraph>
-                Be the first to experience the future of connecting with like-minded professionals.
+              <Typography variant="body1" paragraph>
+                Sign up to be among the first to experience our innovative app.
               </Typography>
               <form onSubmit={handleSubmit} style={{ width: '100%' }}>
                 <TextField
@@ -111,36 +146,36 @@ export default function Page() {
             </Box>
 
             {/* Features Section */}
-            <Box sx={{ py: 8, color: 'white', flexGrow: 1 }}>
+            <Box sx={{ py: 4, width: '100%' }}>
               <Container>
                 <Grid container spacing={4} justifyContent="center">
                   <Grid item xs={12} md={4}>
-                    <Paper sx={{ p: 3, textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: 'rgba(255, 255, 255, 0.8)', boxShadow: 3 }}>
+                    <Paper sx={{ p: 4, textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: 'white', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '10px' }}>
                       <Typography variant="h6" gutterBottom>
                         Create
                       </Typography>
                       <Typography>
-                        Create custom profile displaying your skills and interests.
+                        Build a custom profile showcasing your skills and interests.
                       </Typography>
                     </Paper>
                   </Grid>
                   <Grid item xs={12} md={4}>
-                    <Paper sx={{ p: 3, textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: 'rgba(255, 255, 255, 0.8)', boxShadow: 3 }}>
+                    <Paper sx={{ p: 4, textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: 'white', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '10px' }}>
                       <Typography variant="h6" gutterBottom>
                         Explore
                       </Typography>
                       <Typography>
-                        Swipe on other users' profiles to match with the perfect teammate/partner.
+                        Browse through profiles to find your ideal teammate or partner.
                       </Typography>
                     </Paper>
                   </Grid>
                   <Grid item xs={12} md={4}>
-                    <Paper sx={{ p: 3, textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: 'rgba(255, 255, 255, 0.8)', boxShadow: 3 }}>
+                    <Paper sx={{ p: 4, textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: 'white', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '10px' }}>
                       <Typography variant="h6" gutterBottom>
                         Connect
                       </Typography>
                       <Typography>
-                        Message and interact with real people with similar interests.
+                        Engage with users who share similar interests.
                       </Typography>
                     </Paper>
                   </Grid>
@@ -151,7 +186,7 @@ export default function Page() {
         </Box>
 
         {/* Footer */}
-        <Box sx={{ py: 2, backgroundColor: '#000', color: 'white', textAlign: 'center', width: '100%' }}>
+        <Box sx={{ py: 4, backgroundColor: '#333', color: 'white', textAlign: 'center', width: '100%' }}>
           <Typography variant="body2">
             &copy; 2024 SyncUp. All rights reserved.
           </Typography>
