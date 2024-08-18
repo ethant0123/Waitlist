@@ -1,21 +1,20 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// firebase.js
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCJdyBO6hnIHkkiz1VrSD5b2XoT6LrPc8E",
-  authDomain: "syncup-waitlist.firebaseapp.com",
-  projectId: "syncup-waitlist",
-  storageBucket: "syncup-waitlist.appspot.com",
-  messagingSenderId: "333719600223",
-  appId: "1:333719600223:web:7ad5423a33870474d7efea"
+  apiKey: "AIzaSyCmH0wfB6B9WHFPlyB9j3plSef7-dvobk4",
+  authDomain: "waitlistsyncup.firebaseapp.com",
+  projectId: "waitlistsyncup",
+  storageBucket: "waitlistsyncup.appspot.com",
+  messagingSenderId: "157669903338",
+  appId: "1:157669903338:web:ee810a9564aba5056f8093",
+  measurementId: "G-1JRGH3HLMW"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const firestore = getFirestore(app)
+const firestore = getFirestore(app);
 
-export {firestore}
+export { firestore, collection, addDoc };
